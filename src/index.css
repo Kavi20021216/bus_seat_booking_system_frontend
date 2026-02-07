@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+section {
+  scroll-margin-top: 70px; /* same as header height */
+}
+
+html {
+  scroll-behavior: smooth;
+}
