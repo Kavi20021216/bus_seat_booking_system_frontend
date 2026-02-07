@@ -330,7 +330,7 @@ export default function Checkout() {
     const navigate = useNavigate();
 
     // Seats passed from previous page
-    const selectedSeats = location.state?.selectedSeats || [];
+    const selectedSeats = location.state?.seats || [];
 
     // Pricing
     const pricePerSeat = 1600;
@@ -403,32 +403,61 @@ export default function Checkout() {
     // };
 
 
-    const handleBooking = async () => {
-        if (!passengerName || !phone || !selectedCard) {
-            alert("Fill all required fields");
-            return;
-        }
+    // const handleBooking = async () => {
+    //     if (!passengerName || !phone || !selectedCard) {
+    //         alert("Fill all required fields");
+    //         return;
+    //     }
 
-        try {
+    //     try {
             
-            await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}/api/bookings/create`,
-                {
-                    busId,
-                    seats: selectedSeats,
-                    passengerName,
-                    phone,
-                    email,
-                    totalPrice,
-                }
-            );
+    //         await axios.post(
+    //             `${import.meta.env.VITE_BACKEND_URL}/api/bookings/create`,
+    //             {
+    //                 busId:bus.busId,
+    //                 seats: selectedSeats,
+    //                 passengerName,
+    //                 phone,
+    //                 email,
+    //                 totalPrice,
+    //             }
+    //         );
 
-            alert("Booking successful!");
-            navigate("/booking-success");
-        } catch (error) {
-            alert(error.response?.data?.message || "Booking failed");
-        }
-    };
+    //         alert("Booking successful!");
+    //         navigate("/booking-success");
+    //     } catch (error) {
+    //         alert(error.response?.data?.message || "Booking failed");
+    //     }
+    // };
+
+    const handleBooking = async () => {
+  if (!passengerName || !phone || !selectedCard) {
+    alert("Fill all required fields");
+    return;
+  }
+
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/api/bookings/create`,
+      {
+        busId,
+        seats: selectedSeats,
+        passengerName,
+        phone,
+        email,
+        totalPrice,
+      }
+    );
+    alert("Booking successful!");
+    const booking = response.data.booking; // the created booking
+
+    // Navigate to booking details page with booking info
+    navigate(`/booking-success/${booking.bookingId}`, { state: { booking } });
+  } catch (error) {
+    alert(error.response?.data?.message || "Booking failed");
+  }
+};
+
 
     return (
         <div className="min-h-screen bg-gray-50 p-10">
@@ -508,6 +537,7 @@ export default function Checkout() {
                                 </label>
                             ))}
                         </div>
+                        <p className="text-red-600 mt-3 cursor-pointer">+ Add New Card</p>
                     </div>
                 </div>
 
@@ -521,6 +551,7 @@ export default function Checkout() {
                         <>
                             <h3 className="text-lg font-semibold">Bus Details</h3>
 
+                           
                             <p><strong>Bus Name:</strong> {bus.busName}</p>
                             <p><strong>From:</strong> {bus.route.from}</p>
                             <p><strong>To:</strong> {bus.route.to}</p>

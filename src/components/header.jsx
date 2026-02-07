@@ -67,14 +67,11 @@ export default function Header() {
 
                 {/* CENTER MENU (DESKTOP) */}
                 <nav className="hidden md:flex flex-1 justify-center gap-10 text-gray-700 font-medium">
-                    {/* <Link to="/" className="hover:text-black">Home</Link>
+                    <Link to="/" className="hover:text-black">Home</Link>
                     <Link to="/services" className="hover:text-black">Services</Link>
                     <Link to="/reserve" className="hover:text-black">Reserve</Link>
-                    <Link to="/about" className="hover:text-black">About</Link> */}
-                    <a href="#home" className="hover:text-red-500">Home</a>
-                    <a href="#services" className="hover:text-red-500">Services</a>
-                    <a href="#reserve" className="hover:text-red-500">Reserve</a>
-                    <a href="#about" className="hover:text-red-500">About</a>
+                    <Link to="/about" className="hover:text-black">About</Link>
+
                 </nav>
 
                 {/* RIGHT - SIGN IN (DESKTOP) */}
@@ -112,12 +109,10 @@ export default function Header() {
                         </div>
 
                         <div className="flex flex-col gap-5 text-gray-700 font-medium">
-                            <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-                            <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
-                            <a href="#reserve" onClick={() => setIsOpen(false)}>Reserve</a>
-                            <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-
-
+                            <Link onClick={() => setIsOpen(false)} to="/">Home</Link>
+                            <Link onClick={() => setIsOpen(false)} to="/services">Services</Link>
+                            <Link onClick={() => setIsOpen(false)} to="/reserve">Reserve</Link>
+                            <Link onClick={() => setIsOpen(false)} to="/about">About</Link>
                             <button
                                 onClick={() => {
                                     setIsOpen(false);

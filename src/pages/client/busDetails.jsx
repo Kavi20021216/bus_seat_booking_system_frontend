@@ -251,7 +251,7 @@ export default function BusDetails() {
             onClick={() =>
               navigate(`/checkout/${bus.busId}`, {
                 state: {
-                  selectedSeats,
+                  seats : selectedSeats,
                   bus,
                 },
               })
