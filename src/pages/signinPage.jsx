@@ -68,7 +68,17 @@ export default function SignIn() {
         localStorage.setItem("token", res.data.token);
         // toast.success("Login successful");
         alert("Login successful");
-        navigate("/"); // redirect to home
+        if(res.data.role == "admin"){
+
+                    //window.location.href = "/admin"
+                    navigate("/admin")
+
+                }else if(res.data.role == "user"){
+
+                    //window.location.href = "/"
+                    navigate("/")
+
+                }
       })
       .catch((err) => {
         // toast.error(err.response?.data?.message || "Login failed");
@@ -112,7 +122,7 @@ export default function SignIn() {
           </div>
 
           <button
-            onClick={() => navigate("/")}
+            onClick={login}
             className="bg-red-600 text-white py-2 rounded-lg mt-4 hover:bg-red-700 transition duration-300"
           >
             Sign In

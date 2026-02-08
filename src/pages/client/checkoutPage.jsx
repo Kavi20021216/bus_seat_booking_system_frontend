@@ -585,7 +585,7 @@ export default function Checkout() {
                                 onClick={handleBooking}
                                 className="mt-5 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition"
                             >
-                                PROCEED TO PAY →
+                                Proceed To Pay →
                             </button>
                         </>
                     ) : (

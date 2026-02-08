@@ -72,7 +72,7 @@ export default function HomePage() {
 
               {/* Scroll button */}
               <a href="#reserve">
-                <button className="mt-8 bg-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-700">
+                <button className="mt-8 bg-red-600 px-8 py-4 rounded-lg font-semibold cursor-pointer hover:bg-red-700">
                   Reserve Seat Now
                 </button>
               </a>
