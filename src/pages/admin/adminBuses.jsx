@@ -42,7 +42,7 @@ export default function AdminBusesPage() {
         <div className="overflow-auto">
           <table className="w-full border-[3px]">
             <thead>
-              <tr className="bg-red-200">
+              <tr className="bg-gray-200">
                 <th className="p-2 border">Bus ID</th>
                 <th className="p-2 border">Bus Name</th>
                 <th className="p-2 border">Route</th>

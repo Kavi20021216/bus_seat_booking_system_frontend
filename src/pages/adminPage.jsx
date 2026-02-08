@@ -11,6 +11,7 @@ import UpdateBusPage from "./admin/adminBusUpdate";
 import AdminBookingsPage from "./admin/adminBookingPage";
 import AdminUsersPage from "./admin/adminUserPage";
 import SettingsAdminPage from "./admin/adminSetting";
+import DailyBookingReport from "./admin/adminDailyReport";
 
 
 export default function AdminPage() {
@@ -79,6 +80,7 @@ export default function AdminPage() {
           <Route path="bookings" element={<AdminBookingsPage />} />
           <Route path="users" element={<AdminUsersPage />} />
           <Route path="settings" element={<SettingsAdminPage />} />
+          <Route path="daily-report" element={<DailyBookingReport />} />
         </Routes>
       </div>
     </div>

@@ -67,7 +67,7 @@ export default function AdminUsersPage() {
         <div className="overflow-auto">
           <table className="w-full border-[3px]">
             <thead>
-              <tr className="bg-[#ff9999]">
+              <tr className="bg-gray-200">
                 <th className="p-2 border">Name</th>
                 <th className="p-2 border">Email</th>
                 <th className="p-2 border">Phone</th>
